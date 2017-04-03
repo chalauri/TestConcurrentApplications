@@ -2,8 +2,10 @@ package main;
 
 import main.monitoring_lock_interface.LTask;
 import main.monitoring_lock_interface.MyLock;
+import main.monitoring_phaser_class.PTask;
 
 import java.util.Collection;
+import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -11,8 +13,31 @@ import java.util.concurrent.TimeUnit;
  */
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        monitoringLockInterfaceExample();
+        //monitoringLockInterfaceExample();
+        monitoringPhaserClassExample();
     }
+
+    private static void monitoringPhaserClassExample() throws InterruptedException {
+        Phaser phaser = new Phaser(3);
+        for (int i = 0; i < 3; i++) {
+            PTask task = new PTask(i + 1, phaser);
+            Thread thread = new Thread(task);
+            thread.start();
+        }
+
+        for (int i = 0; i < 10; i++) {
+            System.out.printf("********************\n");
+            System.out.printf("Main: Phaser Log\n");
+            System.out.printf("Main: Phaser: Phase: %d\n", phaser.getPhase());
+            System.out.printf("Main: Phaser: Registered Parties: %d\n", phaser.getRegisteredParties());
+            System.out.printf("Main: Phaser: Arrived Parties: %d\n", phaser.getArrivedParties());
+            System.out.printf("Main: Phaser: Unarrived Parties: %d\n", phaser.getUnarrivedParties());
+            System.out.printf("********************\n");
+            TimeUnit.SECONDS.sleep(3);
+        }
+
+    }
+
 
     private static void monitoringLockInterfaceExample() throws InterruptedException {
         MyLock lock = new MyLock();
