@@ -5,10 +5,14 @@ import main.monitoring_forkJoin_pool.FJTask;
 import main.monitoring_lock_interface.LTask;
 import main.monitoring_lock_interface.MyLock;
 import main.monitoring_phaser_class.PTask;
+import main.writing_effective_log_messages.FTask;
+import main.writing_effective_log_messages.MyLogger;
 
 import java.util.Collection;
 import java.util.Random;
 import java.util.concurrent.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by G.Chalauri on 04/03/17.
@@ -18,7 +22,35 @@ public class Main {
         // monitoringLockInterfaceExample();
         // monitoringPhaserClassExample();
         // monitoringExecutorFramework();
-        monitoringForkJoinPoolExample();
+        // monitoringForkJoinPoolExample();
+        // writingEffectiveLogMessagesExample(args);
+    }
+
+    private static void writingEffectiveLogMessagesExample(String[] args) {
+        Logger logger = MyLogger.getLogger("Core");
+        logger.entering("Core", "main()", args);
+        Thread threads[] = new Thread[5];
+
+        for (int i = 0; i < threads.length; i++) {
+            logger.log(Level.INFO, "Launching thread: " + i);
+            FTask task = new FTask();
+            threads[i] = new Thread(task);
+            logger.log(Level.INFO, "Thread created: " + threads[i].getName());
+            threads[i].start();
+        }
+
+        logger.log(Level.INFO, "Five Threads created." + "Waiting for its finalization");
+
+        for (int i = 0; i < threads.length; i++) {
+            try {
+                threads[i].join();
+                logger.log(Level.INFO, "Thread has finished its execution", threads[i]);
+            } catch (InterruptedException e) {
+                logger.log(Level.SEVERE, "Exception", e);
+            }
+        }
+
+        logger.exiting("Core", "main()");
     }
 
     private static void monitoringForkJoinPoolExample() throws InterruptedException {

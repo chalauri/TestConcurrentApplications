@@ -1,0 +1,28 @@
+[FINER] - Mon Apr 03 11:17:59 GET 2017 : Core.main() : ENTRY
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Launching thread: 0
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Thread created: Thread-1
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Launching thread: 1
+[FINER] - Mon Apr 03 11:17:59 GET 2017 : Thread-1.run() : ENTRY
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Thread created: Thread-2
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Launching thread: 2
+[FINER] - Mon Apr 03 11:17:59 GET 2017 : Thread-2.run() : ENTRY
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Thread created: Thread-3
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Launching thread: 3
+[FINER] - Mon Apr 03 11:17:59 GET 2017 : Thread-3.run() : ENTRY
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Thread created: Thread-4
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Launching thread: 4
+[FINER] - Mon Apr 03 11:17:59 GET 2017 : Thread-4.run() : ENTRY
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Thread created: Thread-5
+[INFO] - Mon Apr 03 11:17:59 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Five Threads created.Waiting for its finalization
+[FINER] - Mon Apr 03 11:17:59 GET 2017 : Thread-5.run() : ENTRY
+[FINER] - Mon Apr 03 11:18:01 GET 2017 : Thread-2.run() : RETURN {0}
+[FINER] - Mon Apr 03 11:18:01 GET 2017 : Thread-1.run() : RETURN {0}
+[INFO] - Mon Apr 03 11:18:01 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Thread has finished its execution
+[FINER] - Mon Apr 03 11:18:01 GET 2017 : Thread-3.run() : RETURN {0}
+[INFO] - Mon Apr 03 11:18:01 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Thread has finished its execution
+[FINER] - Mon Apr 03 11:18:01 GET 2017 : Thread-4.run() : RETURN {0}
+[INFO] - Mon Apr 03 11:18:01 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Thread has finished its execution
+[FINER] - Mon Apr 03 11:18:01 GET 2017 : Thread-5.run() : RETURN {0}
+[INFO] - Mon Apr 03 11:18:01 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Thread has finished its execution
+[INFO] - Mon Apr 03 11:18:01 GET 2017 : main.Main.writingEffectiveLogMessagesExample : Thread has finished its execution
+[FINER] - Mon Apr 03 11:18:01 GET 2017 : Core.main() : RETURN
