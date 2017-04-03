@@ -1,10 +1,12 @@
 package main;
 
+import edu.umd.cs.mtc.TestFramework;
 import main.monitoring_executor_framework.ETask;
 import main.monitoring_forkJoin_pool.FJTask;
 import main.monitoring_lock_interface.LTask;
 import main.monitoring_lock_interface.MyLock;
 import main.monitoring_phaser_class.PTask;
+import main.testing_concurrency_code_with_multithreadedTC.ProducerConsumerTest;
 import main.writing_effective_log_messages.FTask;
 import main.writing_effective_log_messages.MyLogger;
 
@@ -18,12 +20,22 @@ import java.util.logging.Logger;
  * Created by G.Chalauri on 04/03/17.
  */
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws Throwable {
         // monitoringLockInterfaceExample();
         // monitoringPhaserClassExample();
         // monitoringExecutorFramework();
         // monitoringForkJoinPoolExample();
         // writingEffectiveLogMessagesExample(args);
+        testingConcurrencyCodeWithMultithreadedTCExample();
+    }
+
+
+    private static void testingConcurrencyCodeWithMultithreadedTCExample() throws Throwable {
+        ProducerConsumerTest test = new ProducerConsumerTest();
+
+        System.out.printf("Main: Starting the test\n");
+        TestFramework.runOnce(test);
+        System.out.printf("Main: The test has finished\n");
     }
 
     private static void writingEffectiveLogMessagesExample(String[] args) {
